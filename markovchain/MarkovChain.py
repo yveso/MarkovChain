@@ -12,7 +12,7 @@ class MarkovChain(object):
         self.possible_starts = set()
         self.order = order
 
-    def feedFromFile(self, path):
+    def feed_from_file(self, path):
         with codecs.open(path, 'r', encoding='utf-8') as f:
             data = f.read()
         words = [word.replace('"', '') for word in data.split()]
@@ -33,7 +33,7 @@ class MarkovChain(object):
             else:
                 self.database[key].append(next_one)
 
-    def generateSentence(self):
+    def generate_sentence(self):
         key = choice(list(self.possible_starts))
         sentence = [word for word in key]
         while True:
